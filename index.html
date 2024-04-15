@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tes</title>
+  </head>
+  <body>
+    <form onsubmit="handleLogin(event)">
+      <input type="text" id="nama_pengguna" />
+      <button type="submit">login</button>
+    </form>
+
+    <script>
+      async function handleLogin(e) {
+        e.preventDefault();
+        const nama_pengguna = document.getElementById("nama_pengguna");
+        const data = { nama_pengguna: nama_pengguna.value };
+        console.log(data);
+
+        try {
+          const res = await fetch("http://localhost:3000/auth/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          });
+
+          const result = await res.json();
+          console.log(result);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    </script>
+  </body>
+</html>

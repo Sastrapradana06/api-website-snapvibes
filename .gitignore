@@ -1,0 +1,8 @@
+node_modules/
+insatagram-app-firebase-adminsdk-codqg-1fac91efa5.json
+dist/
+.env
+*.log
+*.env.local
+*.db
+*.sqlite
